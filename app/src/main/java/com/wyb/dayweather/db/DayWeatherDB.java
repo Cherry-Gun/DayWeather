@@ -12,9 +12,8 @@ import com.wyb.dayweather.model.Province;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by lenovo on 16/3/11.
- */
+
+
 public class DayWeatherDB {
 
     //数据库的名称
@@ -44,7 +43,7 @@ public class DayWeatherDB {
             if (province != null) {
                 ContentValues values = new ContentValues();
                 values.put("province_name", province.getProvinceName());
-                values.put("province_dode", province.getProvinceCode());
+                values.put("province_code", province.getProvinceCode());
                 db.insert("Province", null, values);
             }
     }
@@ -57,8 +56,8 @@ public class DayWeatherDB {
             do {
                 Province province = new Province();
                 province.setId(cursor.getInt(cursor.getColumnIndex("id")));
-                province.setProvinceName(cursor.getString(cursor.getColumnIndex("provinceName")));
-                province.setProvinceCode(cursor.getString(cursor.getColumnIndex("provinceCode")));
+                province.setProvinceName(cursor.getString(cursor.getColumnIndex("province_name")));
+                province.setProvinceCode(cursor.getString(cursor.getColumnIndex("province_code")));
                 list.add(province);
             } while (cursor.moveToNext());
         }
@@ -73,7 +72,7 @@ public class DayWeatherDB {
         if (city != null) {
             ContentValues values = new ContentValues();
             values.put("city_name", city.getCityName());
-            values.put("city_dode", city.getCityCode());
+            values.put("city_code", city.getCityCode());
             values.put("province_id", city.getProvinceId());
             db.insert("City", null, values);
         }
@@ -103,9 +102,9 @@ public class DayWeatherDB {
     public void saveCounty(County county) {
         if (county != null) {
             ContentValues values = new ContentValues();
-            values.put("countyName", county.getCountyName());
-            values.put("countyCode", county.getCountyCode());
-            values.put("cityId", county.getCityId());
+            values.put("county_name", county.getCountyName());
+            values.put("county_code", county.getCountyCode());
+            values.put("city_id", county.getCityId());
             db.insert("County", null, values);
         }
     }

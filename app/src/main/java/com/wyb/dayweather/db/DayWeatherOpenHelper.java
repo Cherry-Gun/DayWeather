@@ -4,9 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-/**
- * Created by lenovo on 16/3/11.
- */
+
+
 public class DayWeatherOpenHelper extends SQLiteOpenHelper{
 
     //省市县中“省”的建表  Province
@@ -37,7 +36,7 @@ public class DayWeatherOpenHelper extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_PROVINCE); //创建Province表
         db.execSQL(CREATE_CITY);     //创建City表
-        db.execSQL(CREATE_COUNTY);     //创建County表
+        db.execSQL(CREATE_COUNTY);   //创建County表
     }
 
     @Override

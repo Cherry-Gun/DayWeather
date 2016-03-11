@@ -1,8 +1,7 @@
 package com.wyb.dayweather.model;
 
-/**
- * Created by lenovo on 16/3/11.
- */
+
+
 public class City {
 
     private int id;
