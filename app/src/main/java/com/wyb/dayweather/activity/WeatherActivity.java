@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.wyb.dayweather.R;
+import com.wyb.dayweather.service.AutoUpdateService;
 import com.wyb.dayweather.util.HttpCallbackListener;
 import com.wyb.dayweather.util.HttpUtil;
 import com.wyb.dayweather.util.Utility;
@@ -127,6 +128,7 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
         currentDateText.setText(prefs.getString("current_date", ""));
         weatherInfoLayout.setVisibility(View.VISIBLE);
         cityNameText.setVisibility(View.VISIBLE);
+        startService(new Intent(this, AutoUpdateService.class));
     }
 
 
